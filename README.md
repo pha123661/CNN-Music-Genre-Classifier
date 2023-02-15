@@ -1,16 +1,14 @@
-# NYCU-2021Fall-Introduction_to_Machine_Learning
-NYCU 2021 Fall Introduction to Machine Learning Final project
+# CNN-Music-Genre-Classifier
 
-# Requirements:
-Python packages that you need.  
-numpy==1.19.5  
-pytube==10.8.2  
-matplotlib==3.3.4  
-SoundFile==0.10.3.post1  
-librosa==0.8.0  
-moviepy==1.0.3  
-torch==1.8.0+cu111  
-# File description
+A music genre classifier using CNN, RNN, and Mel spectrogram
+
+Course: Introduction to Machine Learning by C.C. Cheng (NYCU 2021 Fall)
+
+## File description
+
+### Report/
+Contains all experiment results and details
+
 ### Demo-classify-youtube.py: 
 Use trained model to classify youtube video.
 
@@ -26,7 +24,7 @@ Extracts feature from augmented dataset.
 ### XXX_Train_Test_Plot.py
 Train + Test model {XXX}
 
-# Usage
+## Usage
 ### Train and test on GTZAN dataset:
 1. Download GTZAN dataset and place genre folders under dataset/gtzan
 2. Augment data by running ```$ python audio_augmentation.py```
