@@ -2,9 +2,7 @@
 
 A music genre classifier using CNN, RNN, and Mel spectrogram
 
-Also provides a CNN feature extractor to be used with other machine learning models such as SVM / KN.
-
-Course: Introduction to Machine Learning by C.C. Cheng (NYCU 2021 Fall)
+Also provides a CNN feature extractor to be used with other machine learning models such as SVM / KNN.
 
 ## File description
 
