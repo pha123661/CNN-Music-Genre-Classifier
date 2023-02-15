@@ -1,0 +1,675 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>ML_Final Project Report</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+}
+
+.simple-table-header {
+	background: rgb(247, 246, 243);
+	color: black;
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(145, 145, 142, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(187, 132, 108, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(215, 129, 58, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 148, 51, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(108, 155, 125, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(91, 151, 189, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(167, 130, 195, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(205, 116, 159, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(225, 111, 100, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(145, 145, 142, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(187, 132, 108, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(215, 129, 58, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 148, 51, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(108, 155, 125, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(91, 151, 189, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(167, 130, 195, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(205, 116, 159, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(225, 111, 100, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="3f11bc31-542f-461f-8bad-d5bc14d5eb7d" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%"/><h1 class="page-title">ML_Final Project Report</h1></header><div class="page-body"><hr id="1058b68c-5cf5-43f8-8bf7-93d749658788"/><p id="395655f7-e1be-4a9c-bcf6-946ba6e7235d" class="">Topic: Music genre classification</p><p id="277fc70c-5d39-410c-af2d-783a1a1d80c2" class="">Name: 李勝維</p><p id="fa61a4bc-8b28-448d-b78e-1445582515a7" class="">Student ID: 0711239</p><hr id="d9429446-97ee-4e73-a4a5-58e603c5e35d"/><h1 id="ba09c7b7-a74e-4d20-8283-39dda9b0320a" class="">I. Introduction</h1><p id="84701323-36ae-434f-bef6-bcaf0f688af9" class="">    本次專題的主題是音樂曲風的分類，然而音樂曲風並沒有一個嚴謹的定義，而不同的類別間又有相似處與相異處，若我們能幫助電腦理解不同類別獨有的特色，也許我們就能夠更清楚地了解這些音樂種類的風格。對於商業音樂平台（如：kkbox、spotify……）而言，根據音樂種類來推薦相似音樂也是重要的服務之一。</p><p id="411e249d-ed28-4fa6-8572-4686fa5e4d17" class="">    人們在判斷音樂類別時，往往是依據歌曲的旋律、節拍、音調、樂器種類等等來分辨，同理，我們要把這些關鍵的「特徵」給機器來分辨。相較於使用原始龐大的資料，透過特徵提取，在保留資料特徵和完整性的前提下將資料壓縮，以利後續的機器學習。</p><p id="c1889d51-b218-4531-a149-78f00fe0f0da" class="">    在此次專題裡，由於資料量不足，我們會先產生一些合成資料，然後使用梅爾頻譜來對聲譜圖提取特徵，再使用卷積神經網路（CNN）進行進一步的特徵提取，接著用不同種類的模型來讓機器依特徵做分辨。</p><figure id="c4800234-6b68-4243-919d-5542f3d8900f" class="image"><a href="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/Untitled.png"><img style="width:705px" src="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/Untitled.png"/></a></figure><hr id="284e2249-ade9-4b9b-a5f3-c538d5ad7905"/><h1 id="ee61e32b-39af-4b62-8402-c6d1bfc5bc27" class="">II. Data Collection &amp; Dataset Introduction</h1><h2 id="35aeb65d-4195-4cfe-8b98-3ad399332fd7" class="">1. GTZAN dataset</h2><p id="e87d31e3-2941-48c0-8515-fb193ebe1c9e" class="">Source: <a href="http://marsyas.info/downloads/datasets.html">GTZAN dataset</a></p><blockquote id="e68154eb-d627-4df1-9b4a-fbfaded80d07" class="">This dataset was used for the well known paper in genre classification &quot;Musical genre classification of audio signals&quot; by G. Tzanetakis and P. Cook in IEEE Transactions on Audio and Speech Processing 2002.
+The dataset consists of 1000 audio tracks each 30 seconds long. It contains 10 genres, each represented by 100 tracks. The tracks are all 22050Hz Mono 16-bit audio files in .wav format.</blockquote><h2 id="902da3b0-d133-453c-a2f4-00733374f21e" class="">Issues &amp; Filtering</h2><p id="76d325b7-e6cf-4df9-819e-b58cb549bb8c" class="">Data are filtered based on:</p><ol type="1" id="59cfe755-5cb7-429d-a9e5-79538f3e6b4f" class="numbered-list" start="1"><li>After studying  <a href="https://arxiv.org/pdf/1306.1461.pdf">&quot;The GTZAN dataset: Its contents, its faults, their effects on evaluation, and its future use&quot;</a>  and experiment results , I choose not to include genre &#x27;blue&#x27; and &#x27;rock&#x27; in this task due to its distribution overlaps with other classes, which makes the task too hard to solve.</li></ol><ol type="1" id="06073cee-02e6-4161-94ff-994cbecda71d" class="numbered-list" start="2"><li><a href="https://github.com/jordipons/sklearn-audio-transfer-learning/tree/master/data/index/GTZAN"><code><em>jordipons/sklearn-audio-transfer-learning</em></code></a><em>,</em> which provides a standard split for GTZAN dataset. Data are splitted as training, validation and testing sets.
+Hyperparameters are selected based on validation set</li></ol><p id="8c38265f-fc7e-44f4-90be-dc0ad90d0d73" class="">In conclusion: 8 genres (classical、country、disco、hiphop、jazz、metal、pop、reggae) + predefined split</p><h2 id="9b1b5ec5-0ab3-49eb-8571-bf8b70d73ce8" class="">2. <strong>CHOSIC &amp; </strong>Youtube</h2><p id="6ed93f2f-a95a-4d34-9b1b-2aba15a9586e" class="">Source: <a href="https://www.chosic.com/list-of-music-genres/">Popular music genres &amp; subgenres | With examples and playlists - Chosic</a> &amp; <a href="https://www.youtube.com/">YouTube</a></p><p id="a80e9aa8-3713-4dac-a85c-942dcf626301" class="">Get playlist of each genre via <a href="https://www.chosic.com/list-of-music-genres/">Chosic</a> and manually download playlist via <a href="https://github.com/ytdl-org/youtube-dl">youtube-dl</a></p><p id="cf7e4d68-ba8a-4074-9159-06a80a5795e1" class="">This part of data are <strong>NOT </strong>used in any of the experiment setups due to its scarcity. But only used during fine-tuning pretrained weight for demo purpose (Demo_CNN_model.pth).</p><hr id="13e3dea7-b350-4852-893d-6760a81f4c91"/><h1 id="ff230cfc-29f2-459c-8af9-07571888cf1a" class="">III. Data Augmenting &amp; Data Preprocessing</h1><h2 id="51cf0ea2-bc8d-498c-b829-a7bc506aca6d" class="">Data Augmentation</h2><h3 id="394b41c9-7965-4eee-a903-72f3cdc2cb70" class="">Corresponding source code: audio_augmentation.py</h3><p id="c7d8e035-e64a-4d03-99b2-56619eabf29b" class="">由於GTZAN資料集在每個分類上只有100首歌曲，在經過實驗後發現數據量不足，並造成嚴重的過擬合（overfitting），而 Data Augmentation 是在已有資料的基礎上創造出更多的資料，本次專題中使用的方法如下：</p><div id="eccfadcf-4810-4763-9c8e-e4ed633fe864" class="column-list"><div id="76312e7b-f5f9-459e-a593-e5e67113afbd" style="width:50%" class="column"><ol type="1" id="68a55165-c622-4706-bdd2-ae18dd6a2b07" class="numbered-list" start="1"><li>原始聲音資料：<figure id="f5e3db34-4e71-4ef2-96f0-d4e607da9c07" class="image"><a href="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/Untitled%201.png"><img style="width:375px" src="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/Untitled%201.png"/></a></figure></li></ol></div><div id="3fc18217-5eb0-441c-8c23-3ceb510c4e51" style="width:50%" class="column"><ol type="1" id="d0b327c5-86fb-4c12-9aba-666f421e8893" class="numbered-list" start="2"><li>增加白噪音<figure id="6daedcee-7756-40e4-b3ec-763a75d31afe" class="image"><a href="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/Untitled%202.png"><img style="width:374px" src="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/Untitled%202.png"/></a></figure></li></ol></div></div><div id="2f324190-ae18-4f16-98b6-6b6e628d3e2c" class="column-list"><div id="142f4f2b-83f4-4dac-832e-c4295c2e9f0c" style="width:50%" class="column"><ol type="1" id="e52f2302-d6e0-4434-b162-902ed2744ca6" class="numbered-list" start="3"><li>移調<figure id="50553051-055e-450b-bd61-51f6f6b9579c" class="image"><a href="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/Untitled%203.png"><img style="width:392px" src="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/Untitled%203.png"/></a></figure></li></ol></div><div id="f673360d-cc15-492d-a28f-1b18fb4dfa2d" style="width:50%" class="column"><ol type="1" id="4a588fbc-6747-460b-9091-2241e3fcb93a" class="numbered-list" start="4"><li>時間拉伸（改變速度）<figure id="426c1059-12ec-4f3c-9586-c85c7b7e5528" class="image"><a href="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/Untitled%204.png"><img style="width:375px" src="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/Untitled%204.png"/></a></figure></li></ol></div></div><div id="3a80bfea-79df-4082-928f-5a65bd18a665" class="column-list"><div id="2e54f4a6-8a21-4d74-8b34-8d33ba7b967d" style="width:50%" class="column"><ol type="1" id="787b8743-3100-453f-b875-65123f63eff0" class="numbered-list" start="5"><li>移調並改變速度（綜合 3 跟 4）<figure id="e6f72fff-2bd9-4664-9c15-9626a41dc5d4" class="image"><a href="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/Untitled%205.png"><img style="width:392px" src="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/Untitled%205.png"/></a></figure></li></ol></div><div id="110abf22-d4d7-4d75-9d7b-dd15a737a5f5" style="width:50%" class="column"><ol type="1" id="5d4f5daa-4a4b-477d-84db-3b2ec095b2bf" class="numbered-list" start="6"><li>移位（時間上的左右位移）<figure id="5b17c55e-36af-423d-9b21-220128e8781d" class="image"><a href="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/Untitled%206.png"><img style="width:379px" src="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/Untitled%206.png"/></a></figure></li></ol></div></div><div id="5087f7b7-5d92-4f39-ae4c-0bdbdcb96575" class="column-list"><div id="2a7430c8-29df-45da-b588-8b65680d5db3" style="width:50%" class="column"><ol type="1" id="76eb1e0e-4c32-42e4-94e0-229f46cbbba5" class="numbered-list" start="7"><li>振幅拉伸（振幅乘上一隨機值）<figure id="1e722259-cdcb-40d1-a518-64fdc72cf81f" class="image"><a href="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/Untitled%207.png"><img style="width:383px" src="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/Untitled%207.png"/></a></figure></li></ol></div><div id="d4f4a512-a53b-4be3-842e-bd02c01395d2" style="width:50%" class="column"><ol type="1" id="97f19c92-f8dc-40ea-854d-ee068b004975" class="numbered-list" start="8"><li>去除人聲，保留伴奏<figure id="4f2bd10a-6abf-40e2-833e-81e5fda07498" class="image"><a href="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/Untitled%208.png"><img style="width:370px" src="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/Untitled%208.png"/></a></figure></li></ol></div></div><p id="cca6b0d9-b4ab-435b-96d1-f9c8675dcd29" class="">如此即可獲得更多的資料，有效緩解過擬合的問題。</p><p id="28fb6b98-cfec-4192-b3fa-273bcbe440d8" class="">實作細節上，使用了librosa, soundfile 和 ffmepg 來實作。</p><h2 id="4949214c-1b26-4290-b88b-1c4335d97e16" class="">Data Preprocessing</h2><h3 id="cdb2dd20-491e-4acb-9db9-8901483ddd69" class="">Corresponding source code: feature_extraction.py</h3><p id="c1edb888-5569-46c6-a274-b9bc08d0e908" class="">因為音訊資料的天然特性（很高的取樣率和不固定的長度），在訓練前，經過特徵提取和一些資料格式的轉換後可以更加方便並加速訓練過程。</p><p id="8a66f262-5e4a-40ee-a0c9-c12d8c34dadc" class="">GTZAN資料集中的音樂長度皆為固定30秒，因此在處理其他來源的資料時，將其分為30秒一段，並捨棄小於30秒的部分</p><p id="0c9aaa36-4026-4299-b763-6197e71c5f1c" class="">經過文獻閱讀和網路搜尋，我選擇使用梅爾頻譜（Mel Spectrogram）結合卷積神經網路（CNN）來作為特徵提取的手段，分為以下三步驟：</p><h2 id="2eddbaf1-2d0a-4d87-bea7-1aec5b816846" class="">1. 短時距傅立葉變換(<em>SHORT TIME FOURIER TRANSFORM, STFT</em>)</h2><p id="e69f9a3d-a4fa-4592-b6be-31bae4826ef2" class="">聲音訊號本身是一維的時域訊號(時間-振幅)，我們很難看出頻率變化的規律，如果透過傅立葉變換把他轉換到頻域上，雖然可以看出訊號的頻率分布，但是失去了時域資訊，無法看出頻率分布隨時間的變化。</p><p id="a09ca828-0fad-4a00-8997-554f3edeeb7d" class="">為了解決這個問題，使用短時距傅立葉變換(STFT)，步驟如下:</p><ol type="1" id="ee8107b6-2f8c-46dc-81f1-e5a0059c57ad" class="numbered-list" start="1"><li>將訊號分幀，也就是對時域做切割：在本次的報告中以約每0.0464ms (= 1024/sample_rate) 進行一次切割，為了避免兩幀之間的變化過大，使相鄰兩幀有50%的重疊。</li></ol><ol type="1" id="0ce3c6a9-51ca-436c-9313-d844afa0b13d" class="numbered-list" start="2"><li>加窗(窗函數)：將訊號切割將導致在各個幀兩端的不連續，產生不存在於原始訊號的高頻成分，因此我們必須加窗來避免此問題。而在此次專題中，使用的是hann窗函數：</li></ol><figure id="edbf7529-69ba-4110-a92c-54d889a2d1a8" class="image"><a href="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/Untitled%209.png"><img style="width:340px" src="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/Untitled%209.png"/></a><figcaption>可以看到窗口兩端都為0，避免每幀訊號之間的不連續</figcaption></figure><ol type="1" id="a370e9fc-1288-4b46-a9ac-1b3f6c577877" class="numbered-list" start="3"><li>快速傅立葉變換(Fast Fourier Transform, FFT)：對切割完成的每一幀進行FFT，如此一來即可獲得每一幀的頻率-振幅圖</li></ol><p id="b8e1ee5f-4055-4abb-a256-14102af5e86f" class="">最後將每一幀的結果依時間順序疊加起來，就能得到的二維訊號形式(將振幅用顏色深淺表示，縱軸為頻率，橫軸為時間)。以下為STFT完整步驟的圖例<a href="https://www.programmersought.com/article/94453740445/">[3]</a>：</p><figure id="112f210f-adcf-40ef-93d6-4ac83a2908ac" class="image"><a href="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/Untitled%2010.png"><img style="width:749px" src="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/Untitled%2010.png"/></a></figure><p id="8865651b-0d52-4828-9a67-8cf4a4636a91" class="">音訊經過STFT後，得到長度為1024，寬度為頻寬(128)的聲譜圖。</p><h2 id="f1d9a677-16b4-4b86-b593-5a9e4e78c746" class="">2. 梅爾頻譜（Mel Spectrogram）</h2><p id="7f6b1e81-7a86-4c7c-b8f8-787a38917a59" class="">如果原始訊號是聲音訊號，那麼通過STFT展開得到的二維訊號就是所謂的聲譜圖。透過聲譜圖，我們可以觀察共振峰 （聲音的辨識特徵），進而識別聲音。</p><p id="8bd8736a-1a1f-4db6-a491-21b8931a8242" class="">但是聲譜圖是一張很大很大的圖，因此為了得到合適的聲音特徵，我們會將聲譜圖透過梅爾濾波器組去除掉不必要的部分，將其轉換成梅爾頻譜（Mel Spectrogram）</p><p id="891f6c5c-94a9-4eea-a2a2-660b04224fae" class=""><strong>梅爾濾波器組的設計理念為模仿人耳的聽覺特徵：</strong></p><ol type="1" id="694be9a6-5e33-4fd9-a1a0-847a70c9f6c2" class="numbered-list" start="1"><li>振幅改為使用梅爾刻度：
+人耳能聽到的頻率範圍是20-20000Hz，但人耳對頻率的靈敏程度並不是線性關係。因此改為使用梅爾刻度，將頻率進行非線性轉換來獲得近似人耳的效果，
+轉換公式如下，m表示梅爾刻度，f表示頻率：</li></ol><figure id="a8aa4ac1-1c8e-4a57-b7ed-745feebec850" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>m</mi><mo>=</mo><mn>2595</mn><mo>∗</mo><mi>l</mi><mi>o</mi><mi>g</mi><mo stretchy="false">(</mo><mn>1</mn><mo>+</mo><mfrac><mi>f</mi><mn>700</mn></mfrac><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">m = 2595*log(1 + \frac{f}{700})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">m</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2595</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:2.0574399999999997em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714399999999998em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">700</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">)</span></span></span></span></span></div></figure><ol type="1" id="983d29d5-1590-4e8b-badb-8f86b1fb3b9f" class="numbered-list" start="2"><li>模擬人耳的遮蔽效應：
+音量較弱的聲音的聽覺感受會因為另一個音量較強的聲音所影響而變得不易察覺。
+而臨界頻帶寬度是指，當「被遮蔽音」被強度相當的「遮蔽音」遮蔽時，為了能夠聽到被遮蔽音，所需要的最小頻率帶寬寬度即為臨界頻帶寬度，而越高頻的聲音，則需要越大的帶寬。
+<strong>因此在設計梅爾濾波器時，高頻的濾波器帶寬較大，而低頻的濾波器帶寬較小</strong></li></ol><ol type="1" id="d31b74b9-638a-4b80-b555-4379a8ec20a2" class="numbered-list" start="3"><li>模擬人耳基底膜（耳膜）：
+人耳基底膜依照對聲音頻率的感受，可以將基底膜劃分為很多很小的部分，而每一部分對應一個頻率群。圖例如下，<strong>每個顏色分別代表1個(三角)濾波器</strong>：</li></ol><figure id="09bab87a-c347-4509-913a-fcecf71da297" class="image"><a href="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/Untitled%2011.png"><img style="width:644px" src="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/Untitled%2011.png"/></a></figure><p id="50364afa-e8a7-4ecf-bace-5719ccab4c1e" class="">梅爾濾波器組由多個三角濾波器組成（對應第3點）：低頻處濾波器密集，帶寬小，高頻處濾波器稀疏，帶寬大，恰好模擬了人耳的聽覺感受（疏密對應第1點，帶寬大小對應第2點）。</p><p id="32905dec-c928-4705-aa42-7a1ae454164f" class="">此次專題中我使用的梅爾濾波器包含了128個三角濾波器，而由於人類並不需要聽完整首歌才能進行曲風的判斷，因此在此步驟我再次將每份聲譜圖平分為8份，並產生對應的8份梅爾頻譜。</p><h2 id="6368ebf8-41c3-4393-9951-a657b1c21998" class="">小結</h2><p id="0054c039-b0b3-4f45-a7b5-8ca3be33b60a" class="">具體的實作為，先透過STFT，將每段30秒的音訊轉換成聲譜圖，將此份聲譜圖平分成8等份，並將每份通過梅爾濾波器組後產生對應的梅爾頻譜。</p><p id="40bb6e8f-5fbc-4a1c-b349-bcd8f97c3015" class="">簡單來說，可以理解成：音訊透過STFT和梅爾濾波器組，產生的梅爾頻譜，和音訊通過人耳，並傳送到大腦中的訊號十分類似，梅爾頻譜即是為了這個目標而設計出來的，而三角濾波器的數目決定了資料的壓縮程度和保真程度，而STFT為產生梅爾頻譜的前置步驟。</p><h2 id="ecedb3a7-21d6-44ae-b56a-78b1f2ddcd70" class="">3. 卷積神經網路 (CNN Extractor)</h2><h3 id="effe9f08-9ca4-4075-84ef-7c6321e52f35" class="">傳統方法</h3><p id="0669e72c-9ccd-4da9-a4d9-2a71c98d0cf3" class="">在文獻閱讀時發現：
+<a href="https://ieeexplore.ieee.org/document/1021072">[4]</a> 使用了Gaussian mixture model 搭配 KNN，並使用了三種人工 (hand-crafted) 特徵(timbral texture, rhythmic content, pitch content) 上達到了70%左右的準確率；
+而 <a href="https://ieeexplore.ieee.org/abstract/document/1199998">[5]</a> 中使用了 SVM 並同樣搭配 hand-crafted特徵，在僅4個音樂類別上達到了約90%的準確率。</p><p id="1c65687f-3a56-416a-bff6-bfc2c97b19b5" class="">我發現使用傳統機器學習方法時，由於模型相較於深度學習，較為簡單（函式池較小），需要搭配人工特徵才能有比較好的結果，由於設計、實驗不同的人工特徵耗時且需要非常豐富的經驗，因此我想在本次的專題中，實驗使用卷積神經網路來取代傳統的人工特徵。</p><h3 id="16d2c9bb-2c0c-4a2b-b82e-ec98161ffb97" class="">為何選擇使用CNN？</h3><p id="867c597c-f8ab-4bc5-b913-a116d1120b94" class="">Convolution Neural Network在設計之初，即假設了在資料中，蘊含著階層性的特徵。</p><p id="7397ceea-1538-4e92-84a9-707c6f6e49f3" class="">以CNN最應用的圖像辨識為例，從底層、明顯的特徵（如：斜條紋、圓圈……）一起判斷，可以得到更上層、更抽象的特徵（如：器官、特定物體……）；而我認為音樂種類的分類同樣也蘊含著階層性的特徵，從底層的音符排列、節拍、演奏力度，到較為抽象的特定和絃、伴奏樂器、樂曲風格等等，因此在本專題中希望能使用CNN來提取出這些特徵，以利後續的分類。</p><p id="1311628a-accc-4e38-8f4c-c1bb1023e188" class="">具體的操作為將前述的梅爾頻譜輸入進卷積神經網路，並將其輸出之抽象向量（latent vector）作為後續分類器的輸入。</p><h3 id="b73b9d48-293b-4720-8a4d-86c41297b6c3" class="">4. Normalization</h3><p id="cd751684-e984-4f2a-9f92-4b51cfac5d4e" class="">最後產生的latent vector會依照訓練集的 <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mtext> </mtext><mi mathvariant="normal">&amp;</mi><mtext> </mtext><mi>σ</mi></mrow><annotation encoding="application/x-tex">\mu\ \&amp;\ \sigma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">μ</span><span class="mspace"> </span><span class="mord">&amp;</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span></span></span></span></span><span>﻿</span></span> 進行standard normalization。</p><p id="be69d2b8-010a-468a-aa9b-4ae44fee61ec" class="">
+</p><hr id="b472c52e-3385-4c93-9bb5-548595f2be6b"/><h1 id="e3cced82-622c-4aa7-a4bf-c0d15bf5838d" class="">IV. Models</h1><h2 id="0b70dc1e-d7e5-48ae-a7ae-f72e5b4954a8" class="">特徵提取器，CNN 的網路架構選擇</h2><p id="cb18996b-9b82-4c03-be30-457e052da296" class="">由於網路架構（可訓練參數量）和各種超參數與訓練資料的大小、分佈息息相關，因此我比較了不同層數的CNN網路，來決定後續使用不同分類器時要使用的網路架構。</p><p id="b797f4a6-2866-4b65-84e5-3cd6e8c9c8e9" class="">每個神經網路的輸入皆為<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>×</mo><mn>128</mn><mo>×</mo><mn>128</mn></mrow><annotation encoding="application/x-tex">1 \times 128 \times 128</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">128</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">128</span></span></span></span></span><span>﻿</span></span>的梅爾頻譜（第一維表示channel數）
+測試的網路架構如下：</p><ol type="1" id="7edcd38e-3a6c-4b67-b7ec-177380d312b6" class="numbered-list" start="1"><li>2-Layers：經過了二層的Convolution、Batch normalization和Max pooling，先變為<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>64</mn><mo>×</mo><mn>32</mn><mo>×</mo><mn>32</mn></mrow><annotation encoding="application/x-tex">64 \times 32 \times 32</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">64</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">32</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">32</span></span></span></span></span><span>﻿</span></span>，再變為<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>128</mn><mo>×</mo><mn>8</mn><mo>×</mo><mn>8</mn></mrow><annotation encoding="application/x-tex">128 \times 8 \times 8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">128</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">8</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">8</span></span></span></span></span><span>﻿</span></span></li></ol><ol type="1" id="20d4f2b1-66c2-44b5-ae65-7239d78047ee" class="numbered-list" start="2"><li>3-Layers：經過了三層的Convolution、Batch normalization和Max pooling，依次變為<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>64</mn><mo>×</mo><mn>64</mn><mo>×</mo><mn>64</mn></mrow><annotation encoding="application/x-tex">64 \times 64\times 64</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">64</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">64</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">64</span></span></span></span></span><span>﻿</span></span>、<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>128</mn><mo>×</mo><mn>16</mn><mo>×</mo><mn>16</mn></mrow><annotation encoding="application/x-tex">128 \times 16 \times 16</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">128</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">16</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">16</span></span></span></span></span><span>﻿</span></span>，最後變為<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>256</mn><mo>×</mo><mn>4</mn><mo>×</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">256 \times 4\times 4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">256</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">4</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">4</span></span></span></span></span><span>﻿</span></span></li></ol><ol type="1" id="527e5caa-5444-473f-8972-5777c9ada27d" class="numbered-list" start="3"><li>4-Layers：經過了四層的Convolution、Batch normalization和Max pooling，依次變為<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>64</mn><mo>×</mo><mn>64</mn><mo>×</mo><mn>64</mn></mrow><annotation encoding="application/x-tex">64 \times 64 \times 64</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">64</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">64</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">64</span></span></span></span></span><span>﻿</span></span>、<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>128</mn><mo>×</mo><mn>32</mn><mo>×</mo><mn>32</mn></mrow><annotation encoding="application/x-tex">128 \times 32\times 32</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">128</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">32</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">32</span></span></span></span></span><span>﻿</span></span>、<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>256</mn><mo>×</mo><mn>8</mn><mo>×</mo><mn>8</mn></mrow><annotation encoding="application/x-tex">256 \times 8\times 8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">256</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">8</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">8</span></span></span></span></span><span>﻿</span></span>，最後變為<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>512</mn><mo>×</mo><mn>2</mn><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">512 \times 2\times 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">512</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span></span><span>﻿</span></span></li></ol><ol type="1" id="cb4359e6-456e-4804-b817-659d6fe8cbfb" class="numbered-list" start="4"><li>5-Layers：經過了五層的Convolution、Batch normalization和Max pooling，依次變為<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>32</mn><mo>×</mo><mn>64</mn><mo>×</mo><mn>64</mn></mrow><annotation encoding="application/x-tex">32\times 64\times 64</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">32</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">64</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">64</span></span></span></span></span><span>﻿</span></span>、<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>64</mn><mo>×</mo><mn>32</mn><mo>×</mo><mn>32</mn></mrow><annotation encoding="application/x-tex">64 \times 32\times 32</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">64</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">32</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">32</span></span></span></span></span><span>﻿</span></span>、<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>128</mn><mo>×</mo><mn>16</mn><mo>×</mo><mn>16</mn></mrow><annotation encoding="application/x-tex">128 \times 16\times 16</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">128</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">16</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">16</span></span></span></span></span><span>﻿</span></span>、<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>256</mn><mo>×</mo><mn>8</mn><mo>×</mo><mn>8</mn></mrow><annotation encoding="application/x-tex">256 \times 8\times 8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">256</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">8</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">8</span></span></span></span></span><span>﻿</span></span>，最後變為<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>512</mn><mo>×</mo><mn>2</mn><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">512 \times 2\times 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">512</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span></span><span>﻿</span></span></li></ol><p id="083d964b-7bd1-4ff0-9bcd-392e8d40620b" class="">最後同樣都是接上3層的FC層作為分類器，結果如下：</p><table id="88b4b4cd-b293-4ac1-a4ea-95c45a4760c5" class="simple-table"><thead><tr id="13499915-21e1-44f1-baf8-ff6e7fb21230"><th id="qVBy" class="simple-table-header">Accuracy (%)</th><th id="d:&lt;x" class="simple-table-header">Training set</th><th id="d^n|" class="simple-table-header">Validation set</th><th id="hSKY" class="simple-table-header">Testing set</th></tr></thead><tbody><tr id="f4c3a114-b700-4c3c-82ab-192d8ae10ec7"><td id="qVBy">2-Layers</td><td id="d:&lt;x">98.93</td><td id="d^n|">73.00</td><td id="hSKY">78.80</td></tr><tr id="88d0795f-1194-4d51-a6ea-94941192f1ff"><td id="qVBy">3-Layers</td><td id="d:&lt;x">99.71</td><td id="d^n|">76.42</td><td id="hSKY">80.51</td></tr><tr id="776bc10d-758e-47c5-8092-eec28d629b50"><td id="qVBy">4-Layers</td><td id="d:&lt;x">99.96</td><td id="d^n|"><mark class="highlight-orange_background">77.92</mark></td><td id="hSKY"><mark class="highlight-orange_background">81.94</mark></td></tr><tr id="20242cbd-2624-4eeb-9e12-bd309f60a612"><td id="qVBy">5-Layers</td><td id="d:&lt;x"><mark class="highlight-orange_background">99.97</mark></td><td id="d^n|">76.33</td><td id="hSKY">80.73</td></tr></tbody></table><p id="47137285-8a96-438e-a13e-1ad9bd623964" class="">隨著層數的增加，在驗證集（validation set）上的準確率隨之增加，直到增加到第五層時，雖然訓練集上的準確率依舊增加，但驗證集上的準確率卻有所減少，我認為此時發生了過擬合的現象，因此之後的實驗中，都將會使用4層的CNN作為特徵提取器。</p><h2 id="2a5e2c9a-8dcd-4ce5-9d72-c67aa55216ca" class="">分類器的選擇</h2><h3 id="869850d7-727b-455b-a395-fc4f5cf1ed74" class="">Corresponding source code: KNN_Train_Test_Plot.py, SVM_Train_Test_Plot.py, CNN_Train_Test_Plot.py</h3><p id="e60f8a54-4499-4a55-bd91-7851f8362d78" class="">我選擇了 k-nearest neighbors（KNN）， Support Vector Machine (SVM) ，和時下流行的類神經網路（RNN or FC），三者作為本次專題中的分類器，並想比較傳統方法和現行方法之間的優劣取捨。</p><p id="815a9690-2a84-4496-a4b7-9517fa136e82" class="">為了保證實驗結果的泛化程度，所有模型的超參數、網路架構、early stopping 等都是在「訓練集」上訓練，並在「驗證集」上檢驗結果後得出，和「測試集」是完全無關的。</p><h3 id="d9a04eaf-76cb-4c79-9f19-4420a4ac47ae" class="">KNN 超參數設定</h3><p id="7bb7af67-66a4-49c9-ac84-e1ad5bdee2dd" class="">Grid search 結果如下： (Metrics calculated on validation set)</p><table id="43833434-057e-4192-b5dd-8bb221b225af" class="simple-table"><thead><tr id="1e1e0795-fac8-4228-9fc4-1957b79674f4"><th id="iqao" class="simple-table-header">Model Settings</th><th id="biFH" class="simple-table-header">Accuracy</th><th id="TgE`" class="simple-table-header">Average Recall</th><th id="QViq" class="simple-table-header">Average Precision</th></tr></thead><tbody><tr id="5a580db8-1d63-49b7-92c0-a76d7994c59f"><td id="iqao">K = 5</td><td id="biFH"><mark class="highlight-orange_background">0.773333</mark></td><td id="TgE`"><mark class="highlight-orange_background">0.770648</mark></td><td id="QViq"><mark class="highlight-orange_background">0.771348</mark></td></tr><tr id="fd1a2e4d-ca8c-49bc-bfd5-fbeab27ad658"><td id="iqao">K = 7</td><td id="biFH">0.771667 </td><td id="TgE`">0.769479 </td><td id="QViq">0.770003</td></tr><tr id="01ef699c-4fc5-4d36-bfe7-1318c6d79081"><td id="iqao">K = 10</td><td id="biFH">0.769167 </td><td id="TgE`">0.766565 </td><td id="QViq">0.767889</td></tr><tr id="f5d0c81a-1ca2-4d56-87e7-fcfc3c7f23a7"><td id="iqao">K = 20</td><td id="biFH">0.768333 </td><td id="TgE`">0.766301 </td><td id="QViq">0.766124</td></tr><tr id="f096a071-28b7-4563-bfb3-4cca05807fd8"><td id="iqao">K = 40</td><td id="biFH">0.768333 </td><td id="TgE`">0.767545 </td><td id="QViq">0.764994</td></tr><tr id="246d1cae-3735-4792-86b9-41db45d615d1"><td id="iqao">K = 100</td><td id="biFH">0.768333 </td><td id="TgE`">0.766918 </td><td id="QViq">0.764816</td></tr></tbody></table><p id="d2ece84f-0bc2-4349-9870-fe0e8b3c1f4e" class="">最後選擇 K = 5 作為參數設定</p><h3 id="cc2fcdf4-5fe4-4a81-83c5-fd7b076428b7" class="">SVM 超參數設定</h3><p id="471a53e2-111d-4723-bb6b-1cd3b53fab17" class="">在這次的專題中，由於資料量非常龐大，<code>kernel=&#x27;rbf&#x27;</code> 和 <code>kernel=&#x27;poly&#x27;</code> 皆無法順利收斂，因此決定使用Linear SVM (<code>kernel=&#x27;linear&#x27;</code>)，兩種loss設定的結果如下：
+(Metrics calculated on validation set)</p><table id="3a21f27f-dfa9-435c-a2e5-fac0e1b6ed13" class="simple-table"><thead><tr id="fcb60b74-3697-46d7-ae52-ded7c9f14ca8"><th id="b|F?" class="simple-table-header">Model Setting</th><th id="DpiL" class="simple-table-header">Accuracy</th><th id="Dx&lt;R" class="simple-table-header">Average Recall</th><th id="K[&gt;`" class="simple-table-header">Average Precision</th></tr></thead><tbody><tr id="b0ff3d5e-715d-4ff9-9657-f3c132092e52"><td id="b|F?">loss = &#x27;hinge&#x27;</td><td id="DpiL"><mark class="highlight-orange_background">0.776667 </mark></td><td id="Dx&lt;R"><mark class="highlight-orange_background">0.776427 </mark></td><td id="K[&gt;`"><mark class="highlight-orange_background">0.775108</mark></td></tr><tr id="930ec5b9-6839-470d-885b-ad8d1c7bc559"><td id="b|F?">loss = &#x27;squared_hinge&#x27;</td><td id="DpiL">0.775833 </td><td id="Dx&lt;R">0.775507 </td><td id="K[&gt;`">0.774217</td></tr></tbody></table><p id="5b6aacac-ec58-4ba4-acd6-a248cadb470c" class="">最後選擇loss = &#x27;hinge&#x27;作為參數設定</p><h3 id="d99a66a9-b878-4016-b1f7-2c8f165d6e9a" class="">類神經網路架構選擇</h3><p id="5f70145a-ecc2-41e8-a17c-46f7bd7fdb3c" class="">由於音樂是一個時序性的資料，在轉換為梅爾頻譜後也依舊保留了時間上的資訊（temporal infomation），然而我無法確定本次專題是否能夠在透過時序性的資訊獲得好處，因此我決定透過實驗來決定，是否加入RNN（循環神經網路）做進一步的特徵提取，或單純使用FC（多層全連結層）來作為分類器。</p><p id="f4608167-2a6c-4fd4-9202-87563b536b2b" class="">在實作細節上，皆使用SGD作為優化器（learning rate = 1e-2, weight_decay = 1e-6, momentum = 0.9），而RNN使用的是GRU（gated recurrent unit）作為node</p><p id="b36b2438-8247-4dbd-932d-57767102afdf" class="">實驗結果如下 (Accuracy %)：</p><div id="7e30a4e8-7795-4f4f-90f1-0033065b462c" class="column-list"><div id="419b2a5f-d42a-4360-9f65-524489b97912" style="width:50%" class="column"><ol type="1" id="60a3f32e-78a5-4e81-841c-fc78759de4e1" class="numbered-list" start="1"><li>CNN + RNN + FC:
+梅爾頻譜→CNN→RNN→FC<figure id="9c4b4e81-23f7-40d5-9d42-7e60ac8f8110" class="image"><a href="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/CNNRNN.png"><img style="width:640px" src="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/CNNRNN.png"/></a></figure></li></ol></div><div id="3e0e2176-e2b4-4abf-bab0-0fc36bde8cb4" style="width:50%" class="column"><ol type="1" id="872be666-38ea-4cae-a1ad-e843b5f4207c" class="numbered-list" start="2"><li>CNN + FC: 
+梅爾頻譜→CNN→FC<figure id="a8b02177-b9af-46d5-8d52-05f18fda830a" class="image"><a href="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/CNN.png"><img style="width:640px" src="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/CNN.png"/></a></figure></li></ol></div></div><p id="da05beb3-ca48-4e52-8f7b-bdde9a5ff08b" class="">可以看到，雖然在加入RNN後，收斂的速度提升了，但是在驗證集和測試集上的準確率反而下降，推測是可訓練的參數量在進一步增加後，導致過擬合現象越來越嚴重。</p><p id="aca7aafe-5a7a-4178-a9a3-a755c0620609" class="">而為了驗證並不是因為CNN導致時序性資訊的丟失，因此我也進行了CNN和RNN交換順序的實驗：</p><div id="53c68c80-b16d-4836-b3ad-f9c2eae4f18d" class="column-list"><div id="ca7eb3e4-8eb2-49a4-90b5-cb5f87415f98" style="width:50%" class="column"><ol type="1" id="8bff8e13-ffd6-431e-8138-097a6018165c" class="numbered-list" start="1"><li>CNN + RNN + FC:
+梅爾頻譜→CNN→RNN→FC<figure id="5db4dbce-a9a2-47c7-9d1b-af21207c86d8" class="image"><a href="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/CNNRNN%201.png"><img style="width:640px" src="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/CNNRNN%201.png"/></a></figure></li></ol></div><div id="195dca59-cb31-429f-a432-6ce2e186183c" style="width:50%" class="column"><ol type="1" id="e81e5c20-a04c-4ed2-9659-ce031a3b9940" class="numbered-list" start="2"><li>RNN + CNN + FC:
+梅爾頻譜→RNN→CNN→FC<figure id="d25f8651-bd3c-48b8-9ff5-ed8f3abd1089" class="image"><a href="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/RNNCNN.png"><img style="width:640px" src="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/RNNCNN.png"/></a></figure></li></ol></div></div><p id="e30e4ab2-589c-4ba8-be39-a9ccfddd4625" class="">可以看到不管RNN和CNN的先後順序為何，<strong>其準確率皆低於單純使用FC來作為分類器時的結果。</strong></p><p id="685f04e8-1205-4253-9024-96a0dfac9cb9" class="">因此最後決定單純使用FC來作為類神經網路的分類器。</p><hr id="53c800fc-f46a-4b6c-af47-31555b5c1473"/><h1 id="cff6cc39-36c6-4f34-a54c-4fb53827fad1" class="">V. Results</h1><h2 id="9ff633b4-5157-4046-bc45-970754f2c66e" class="">比較有無CNN提取特徵對於KNN效能的影響</h2><p id="d8169f5e-6825-456f-a4c7-3dc8ef6f926e" class="">(Metrics calculated on testing set)</p><table id="5e872491-2e5e-4631-9308-30bda5c5e06e" class="simple-table"><thead><tr id="2c3d91cf-007d-45af-851e-9d8ffcfb2c2e"><th id="^&lt;j{" class="simple-table-header"></th><th id="mLs`" class="simple-table-header">Accuracy</th><th id="NF~m" class="simple-table-header">Average Recall</th><th id="T~`=" class="simple-table-header">Average Precision</th></tr></thead><tbody><tr id="db66f36c-f202-4c42-9cef-025dfaabdc74"><td id="^&lt;j{">KNN only</td><td id="mLs`">0.332048</td><td id="NF~m">0.325096</td><td id="T~`=">0.449314</td></tr><tr id="be3326e3-7335-4112-a56c-c66f0556e493"><td id="^&lt;j{">CNN → KNN</td><td id="mLs`"><mark class="highlight-orange_background">0.806718 </mark></td><td id="NF~m"><mark class="highlight-orange_background">0.803643</mark></td><td id="T~`="><mark class="highlight-orange_background">0.810268</mark></td></tr></tbody></table><p id="00d77a85-0778-4c1b-a3fc-88350cbfc610" class="">可以看到，在加入CNN前，若沒有以人工的方式提取特徵（如<a href="https://ieeexplore.ieee.org/document/1021072">[4]</a>中的timbral texture, rhythmic content, pitch content），直接以KNN進行擬合的話，效果非常差（準確率約33%），而在加入CNN提取特徵後，效能大幅上升。</p><h2 id="a348c154-d83e-4593-b687-f12a93991349" class="">比較有無CNN提取特徵對於SVM效能的影響</h2><p id="8a073cd3-5e77-4ad3-a714-240ba6de1e1d" class="">(Metrics calculated on testing set)</p><table id="292dc2da-12c1-4859-8c75-bee37a769082" class="simple-table"><thead><tr id="aa104e27-96b3-433a-98f5-b999e9f756dd"><th id="^&lt;j{" class="simple-table-header"></th><th id="mLs`" class="simple-table-header">Accuracy</th><th id="NF~m" class="simple-table-header">Average Recall</th><th id="T~`=" class="simple-table-header">Average Precision</th></tr></thead><tbody><tr id="cbd99485-f488-47ba-a4dc-bab2aae4b624"><td id="^&lt;j{">SVM only</td><td id="mLs`">0.431167  </td><td id="NF~m">0.424323</td><td id="T~`=">0.435524</td></tr><tr id="3a036247-35a8-4fa5-a6a5-253e387bb103"><td id="^&lt;j{">CNN → SVM</td><td id="mLs`"><mark class="highlight-orange_background">0.809471</mark> </td><td id="NF~m"><mark class="highlight-orange_background">0.807890</mark></td><td id="T~`="><mark class="highlight-orange_background">0.811324</mark></td></tr></tbody></table><p id="8ab1e357-0dc1-426c-a552-e3897967fc10" class="">SVM同樣需要類似於<a href="https://ieeexplore.ieee.org/abstract/document/1199998">[5]</a>中的人工特徵，得到的結論和KNN時類似，不再贅述。</p><h2 id="d18cf21a-f596-4f5a-9664-fda7f69e9dab" class="">比較有無CNN提取特徵 對於使用類神經網路時的效能影響</h2><p id="72284ef5-0277-478a-b500-5ec6160f4579" class="">比較了<strong>CNN結合FC</strong>，和將梅爾頻譜直接輸入進<strong>單純的FC網路</strong>之效能對比</p><div id="ae299610-62bb-4f1e-8bc2-1b1c5ffcebaf" class="column-list"><div id="442bc815-a030-4719-a6df-8eb9cf4c9d42" style="width:50%" class="column"><ol type="1" id="604fcd8a-f450-44dd-b81e-4ca622ab50ae" class="numbered-list" start="1"><li>CNN + FC:
+梅爾頻譜→CNN→FC<figure id="8ebc7c69-398f-47d7-8ca7-f369880c0342" class="image"><a href="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/CNN%201.png"><img style="width:640px" src="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/CNN%201.png"/></a></figure></li></ol></div><div id="225d7c6e-2825-4baa-b96e-9e024fa9fc80" style="width:50%" class="column"><ol type="1" id="f321a8bc-8aeb-4334-989c-08563bffbc35" class="numbered-list" start="2"><li>FC:
+梅爾頻譜→ FC<figure id="eae7d0c3-2d08-47cd-84bc-e323a3634c0d" class="image"><a href="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/FC.png"><img style="width:640px" src="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/FC.png"/></a></figure></li></ol></div></div><p id="f35c1198-d505-4947-98fc-2e42ce8a0395" class="">由結果可知，單純使用FC層的話不只收斂的速度較慢，且發生了非常嚴重的過擬合，也可得知加入CNN後對於效能的提升較為明顯</p><h2 id="fcee3d35-e94e-4066-841e-d9def20f172e" class="">比較不同模型的效能</h2><p id="97bfb969-833e-4801-b732-2361a4f42e4c" class="">(Metrics calculated on testing set)</p><table id="40643ecb-50b3-4a40-b0ec-3e0fe20ea043" class="simple-table"><thead><tr id="a2f4ed87-f3a1-40a8-91d7-4888160b75c7"><th id="M_PI" class="simple-table-header">Models</th><th id="GH{z" class="simple-table-header">Accuracy</th><th id="hwuW" class="simple-table-header">Average Recall</th><th id="KgxK" class="simple-table-header">Average Percision</th><th id="`dmn" class="simple-table-header">Fit time</th></tr></thead><tbody><tr id="14075bc1-cf16-41f2-96a3-d6a8647ae50b"><td id="M_PI">CNN + KNN</td><td id="GH{z">0.806718</td><td id="hwuW">0.803643 </td><td id="KgxK">0.810268</td><td id="`dmn"><mark class="highlight-orange_background">&lt; 1 min</mark></td></tr><tr id="4906f17b-bc50-47f7-8310-4b1917ae38b2"><td id="M_PI">CNN + SVM</td><td id="GH{z">0.809471  </td><td id="hwuW">0.807890</td><td id="KgxK">0.811324</td><td id="`dmn">~ 5 min</td></tr><tr id="a552e637-53e8-48e0-9301-86dd664fc754"><td id="M_PI">CNN + FC</td><td id="GH{z"><mark class="highlight-orange_background">0.819934</mark></td><td id="hwuW"><mark class="highlight-orange_background">0.817209</mark></td><td id="KgxK"><mark class="highlight-orange_background">0.824891</mark></td><td id="`dmn">~ 30 min</td></tr></tbody></table><p id="ecfbafdf-da37-4687-979a-9ae5ff075424" class="">可以看到，只要資料量足夠，深度學習經常可以帶來最好的效能；然而傳統機器學習結合CNN的特徵提取器後，能夠在效能差距極小（~1%）的狀況下，獲得相較之下非常快速的訓練時間，其中KNN由於能夠平行化的優勢，能夠以最快的時間完成訓練。</p><hr id="b5cd9f8a-5cd3-4f73-aef4-e681828c9fa6"/><h1 id="563ca6d6-5bca-4755-bf31-6490332cbd10" class="">VI. Conclusion</h1><ol type="1" id="d319ee0b-b634-40df-8787-4838e0d0410b" class="numbered-list" start="1"><li>梅爾頻譜對於音樂辨識來說，是一個非常有效的特徵提取、資料壓縮的方法，可以將約1.3MB的原始資料壓縮成約250KB (~19%)，但是對於效果的影響卻非常小</li></ol><ol type="1" id="d5cea156-5a8b-485c-96f3-7f44909080eb" class="numbered-list" start="2"><li>在資料量足夠的情況下，深度學習往往能夠獲得較好的效果，而傳統的機器學習方法雖然效能略差（差距~1%），但是其優勢在於訓練速度極快，而且得益於較低的模型複雜度，在資料量較少時也可以獲得不錯的成效</li></ol><ol type="1" id="98ba3023-a2ce-4345-8c3b-7ae08665b7bc" class="numbered-list" start="3"><li>相較於[4], [5]中所使用的人工特徵，使用CNN直接進行特徵提取也可以獲得相近，甚至更佳的結果</li></ol><hr id="9e5f4437-bce3-49bd-826a-8116f7537528"/><h1 id="7e6383bd-60b2-46d4-9c96-fb6784189d33" class="">VII. Demo</h1><h3 id="fa5c53b1-a3a4-4b7c-aaec-d17cf4511b39" class="">Corresponding source code: Demo-classify-youtube.py</h3><p id="478942f2-aca5-421a-bea6-792fa481ac8b" class="">直接執行就可以了！ 直接載入訓練好的權重進行預測</p><p id="8a53b0f6-9067-4146-be27-6e7ce37aba13" class="">以下的測試資料都不包含在訓練資料中</p><ul id="0aecaa91-c6aa-4b45-b214-caa60b19eead" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.youtube.com/watch?v=TUVcZfQe-Kw">Dua Lipa - Levitating featuring DaBaby</a> : hip hop<figure id="488a5634-28cc-4e3c-bc8e-aba298a1e2c2" class="image"><a href="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/Untitled%2012.png"><img style="width:1065px" src="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/Untitled%2012.png"/></a></figure></li></ul><ul id="3a24bbd0-1bdb-438f-aab0-6daeb422ba21" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.youtube.com/watch?v=Y4nEEZwckuU">最近很活躍的群青</a> : pop<figure id="9f8cb2fe-d033-4e1e-908a-d58b6f499c6d" class="image"><a href="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/Untitled%2013.png"><img style="width:1161px" src="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/Untitled%2013.png"/></a></figure></li></ul><ul id="1cdb98c6-89ab-48df-9379-bdc8c7040235" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.youtube.com/watch?v=YsDHCjwHLh8">我站在雲林☝😑👇</a> : disco<figure id="96af40d6-04ea-4aa5-b669-7be7c5c13437" class="image"><a href="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/Untitled%2014.png"><img style="width:1210px" src="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/Untitled%2014.png"/></a></figure></li></ul><ul id="af189b6d-6aba-430a-b80f-ce4d23e7e093" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.youtube.com/watch?v=JabvfK8fSpk">我是羅大佑</a> : classical → 推測是因為使用了很多弦樂器，訓練資料也沒有日文<figure id="2cf1b87d-f497-401a-83a1-5f2f6b758003" class="image"><a href="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/Untitled%2015.png"><img style="width:1021px" src="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/Untitled%2015.png"/></a></figure></li></ul><ul id="0509be3b-938b-497b-8b09-a2e3804851dd" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.youtube.com/watch?v=Tc8k9qc-JLc">【海綿寶寶】蟹堡王主題曲 (Krusty Krab song) - YouTube</a> : jazz → 管樂器造成？<figure id="fec017ce-c517-4e37-86d3-a20b5df142a9" class="image"><a href="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/Untitled%2016.png"><img style="width:872px" src="ML_Final%20Project%20Report%20c48002346b684243919d5542f3d8900f/Untitled%2016.png"/></a></figure></li></ul><h1 id="b0fe9bab-d8de-4180-a8f4-2c1b7b0cd977" class="">VIII. Reference</h1><ol type="1" id="b7fd860e-c503-490e-8db4-3479f25a78d5" class="numbered-list" start="1"><li><a href="https://arxiv.org/pdf/1306.1461.pdf">The GTZAN dataset: Its contents, its faults, their effects on evaluation, and its future use</a></li></ol><ol type="1" id="e503d959-2e93-4622-9e13-7bd9ebd3ffce" class="numbered-list" start="2"><li><a href="http://marsyas.info/downloads/datasets.html">marsyas.info/downloads/datasets.html</a></li></ol><ol type="1" id="046dc8db-446d-4d75-b9b1-bdd6fcfc3781" class="numbered-list" start="3"><li><a href="https://www.programmersought.com/article/94453740445/">Audio feature Mel Frequency Cepstral Coefficient (MFCC) extraction (speech recognition) - Programmer Sought</a></li></ol><ol type="1" id="5a9dda78-19c8-44be-ab7a-b8d703974384" class="numbered-list" start="4"><li><a href="https://ieeexplore.ieee.org/document/1021072">Musical genre classification of audio signals | IEEE Journals &amp; Magazine | IEEE Xplore</a></li></ol><ol type="1" id="bdb3d3b4-8136-4a38-bae3-7c1ebb527c0f" class="numbered-list" start="5"><li><a href="https://ieeexplore.ieee.org/abstract/document/1199998/">Musical genre classification using support vector machines | IEEE Conference Publication | IEEE Xplore</a></li></ol><ol type="1" id="4278932b-efd8-4017-bbae-70097178ef46" class="numbered-list" start="6"><li><a href="https://github.com/jordipons/sklearn-audio-transfer-learning/tree/master/data/index/GTZAN">jordipons/sklearn-audio-transfer-learning</a></li></ol></div></article></body></html>
